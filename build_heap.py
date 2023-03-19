@@ -19,7 +19,7 @@ def build_heap(data):
         if data[left_child] < data[min_indx] and left_child < n:
             min_indx = left_child
         
-        if min_indx != j:
+        if data[min_indx] < data[j]:
             data[j], data[min_indx] = data[min_indx], data[j]
             swaps.append((j, min_indx))
             down(min_indx)
