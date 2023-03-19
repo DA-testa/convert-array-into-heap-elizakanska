@@ -10,19 +10,19 @@ def build_heap(data):
 
     def down(j):
         nonlocal swaps
-        min = j
+        min_indx = j
         right_child = 2 * j + 2
         left_child = 2 * j + 1
         
-        if data[right_child] < data[min] and right_child < n:
-            min = right_child
-        if data[left_child] < data[min] and left_child < n:
-            min = left_child
+        if data[right_child] < data[min_indx] and right_child < n:
+            min_indx = right_child
+        if data[left_child] < data[min_indx] and left_child < n:
+            min_indx = left_child
         
-        if min != j:
-            data[j], data[min] = data[min], data[j]
-            swaps.append((j, min))
-            down(min)
+        if min_indx != j:
+            data[j], data[min_indx] = data[min_indx], data[j]
+            swaps.append((j, min_indx))
+            down(min_indx)
             
     not_a_leaf = (n - 2) // 2
     
