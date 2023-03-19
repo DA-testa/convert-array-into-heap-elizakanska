@@ -43,28 +43,22 @@ def main():
     if n == 'I':
         n = int(input())
         data = list(map(int, input().split()))
-        
+        assert len(data) == n
+        swaps = build_heap(data)
+        print(len(swaps))
+        for i, j in swaps:
+            print(i, j)
+    # input from file
     elif n == 'F':
         file = input()
         with open("tests/" + file, 'r') as fin:
             n = int(fin.readline().strip())
             data = list(map(int, fin.readline().split()))
-
-    # checks if lenght of data is the same as the said lenght
-    assert len(data) == n
-
-    # calls function to assess the data 
-    # and give back all swaps
-    swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
-
-    # output all swaps
-    print(len(swaps))
-    for i, j in swaps:
-        print(i, j)
+            assert len(data) == n
+            swaps = build_heap(data)
+            print(len(swaps))
+            for i, j in swaps:
+                print(i, j)   
 
 
 if __name__ == "__main__":
