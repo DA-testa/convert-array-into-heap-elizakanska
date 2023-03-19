@@ -14,9 +14,9 @@ def build_heap(data):
         right_child = 2 * j + 2
         left_child = 2 * j + 1
         
-        if data[right_child] < data[min_indx] and right_child < n:
+        if data[right_child] < data[left_child] and right_child < n:
             min_indx = right_child
-        if data[left_child] < data[min_indx] and left_child < n:
+        elif left_child < n:
             min_indx = left_child
         
         if data[min_indx] < data[j]:
@@ -24,6 +24,7 @@ def build_heap(data):
             swaps.append((j, min_indx))
             down(min_indx)
             
+    
     not_a_leaf = (n - 2) // 2
     
     for j in range(not_a_leaf, -1, -1):
